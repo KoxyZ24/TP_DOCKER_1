@@ -32,7 +32,11 @@ Inconvénients :
   Manque de persistance : Les données sont incluses dans l'image et sont donc éphémères. Toute modification ou suppression des données nécessite la reconstruction de l'image.
   Taille de l'image : L'inclusion de grandes quantités de données peut augmenter considérablement la taille de l'image Docker, ce qui peut entraîner des temps de déploiement plus longs et une utilisation plus       importante du stockage.
   Difficulté de mise à jour : Tout changement dans les données nécessite la reconstruction complète de l'image, ce qui peut être fastidieux et prendre du temps.
- 
+
+
+
+docker run --name phpmyadmin-container --link mysql-container -p 8080:80 -d -e PMA_HOST=mysql-container phpmyadmin/phpmyadmin
+docker run --name mysql-container -e MYSQL_ROOT_PASSWORD=root -d mysql:latest  
  
 Commandes dans fichier dockerfile : 
 FROM httpd:latest
