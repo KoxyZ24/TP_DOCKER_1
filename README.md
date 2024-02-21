@@ -39,3 +39,6 @@ EXPOSE 80
 
 docker run --name phpmyadmin-container --link mysql-container -p 8080:80 -d -e PMA_HOST=mysql-container phpmyadmin/phpmyadmin
 docker run --name mysql-container -e MYSQL_ROOT_PASSWORD=root -d mysql:latest  
+
+
+Docker est utilisé pour gérer des conteneurs individuels, tandis que Docker Compose est utilisé pour gérer des applications composées de plusieurs conteneurs interconnectés. Ils sont souvent utilisés ensemble pour simplifier le processus de développement, de déploiement et de gestion des applications conteneurisées.
