@@ -1,14 +1,16 @@
 # TP_DOCKER_1  
 ## Bergougnoux Camille & Baudrin Corentin  
-### docker pull httpd
-### docker images
-### docker run -v C:\Users\Xxkil\Downloads\tp_docker_2_devops\TP_DOCKER_1\html:/usr/local/apache2/htdocs/ -p 8080:80 -d httpd
-### docker rm tender_engelbart
-### docker run -p 8080:80 -d httpd
-### docker cp C:\Users\Xxkil\Downloads\tp_docker_2_devops\TP_DOCKER_1\html interesting_tesla:/usr/local/apache2/htdocs/
-### 
 
+# Docker Run Only
 
+docker pull httpd
+docker images
+docker run -v C:\Users\Xxkil\Downloads\tp_docker_2_devops\TP_DOCKER_1\html:/usr/local/apache2/htdocs/ -p 8080:80 -d httpd
+docker rm tender_engelbart
+docker run -p 8080:80 -d httpd
+docker cp C:\Users\Xxkil\Downloads\tp_docker_2_devops\TP_DOCKER_1\html interesting_tesla:/usr/local/apache2/htdocs/
+
+# Docker File
 Mount Volume
  
 Avantages :
@@ -37,8 +39,11 @@ FROM httpd:lates
 COPY ./html/index.html /usr/local/apache2/htdocs/ 
 EXPOSE 80
 
+# PHP & SQL
 docker run --name phpmyadmin-container --link mysql-container -p 8080:80 -d -e PMA_HOST=mysql-container phpmyadmin/phpmyadmin
 docker run --name mysql-container -e MYSQL_ROOT_PASSWORD=root -d mysql:latest  
 
-
+# Docker Compose
 Docker est utilisé pour gérer des conteneurs individuels, tandis que Docker Compose est utilisé pour gérer des applications composées de plusieurs conteneurs interconnectés. Ils sont souvent utilisés ensemble pour simplifier le processus de développement, de déploiement et de gestion des applications conteneurisées.
+
+docker-compose up
